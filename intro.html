@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="intro.js" type="module" id="script"></script>
+</head>
+<body>
+    <link rel="stylesheet" href="intro.css">
+    <div id="splash">
+        <input type="button" value="start" id="start" onclick="location.href = 'game.html'">
+        <input type="button" value="how to play" id="game" onclick="Swal.fire('r 이 게임 재시작</br>오른쪽 이랑 왼쪽 키 가 움직이기</br>a 가 발사하기</br>s가 스타트</br>S 가 일시정지</br>d가 인트로로 가는키</br>n 이 노멀모드</br>h가 하드모드</br>e가 익스트림 모드</br>!가 익스트림하드 모드</br>o 가 배경음악on,off</br>i 가 플레이 하는법</br>j가 돈 과 물약레벨 초기화</br>p 가 총알스킨변경 </br>ㅣ 이 능력치 보기</br>tab키 가 소리 on/off 입니다')">
+        <input type="button" value="story" id="story" onclick="location.href='story.html'">
+        <div id="shop-menu-container">
+            <input type="button" id="shop-button" />
+            <div id="shop-content-container" class="hidden">
+                <div class="shop-row-common"><img src="image/gold.png" id="gold-icon" /><strong>자금</strong>: <span id="current-money"></span></div>
+                <div class="shop-item shop-row-common" id="speed"><img src='image/speedpotion.png' class="shop-item-icon" /><strong>신속의 물약</strong> (단계: <span id="current-speed">777</span>/<span id="max-speed">777</span>단계, 가격 <span id="speed-price">dummy</span> 골드) <input type="button" value="구매" id="buy-speed-button" class="buy-button" /></div>
+                <div class="shop-item shop-row-common" id="power"><img src='image/powerpotion.png' class="shop-item-icon" /><strong>힘의 물약</strong> (단계: <span id="current-power">777</span>/<span id="max-power">777</span>단계, 가격 <span id="power-price">dummy</span> 골드) <input type="button" value="구매" id="buy-power-button" class="buy-button" /></div>
+                <div class="shop-item shop-row-common" id="health"><img src='image/healthpotion.png' class="shop-item-icon" /><strong>체력의 물약</strong> (단계: <span id="current-health">1</span>/<span id="max-health">777</span>단계, 가격 <span id="health-price">dummy</span> 골드) <input type="button" value="구매" id="buy-health-button" class="buy-button" /></div>
+                <div class="shop-item shop-row-common" id="sword"><img src='image/sword.png' class="shop-item-icon" /><strong>검</strong> (단계: <span id="current-sword">777</span>/<span id="max-sword">777</span>단계, 가격 <span id="sword-price">dummy</span> 골드) <input type="button" value="구매" id="buy-sword-button" class="buy-button" /></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

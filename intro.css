@@ -1,0 +1,92 @@
+#start{
+    width:200px;
+    height:80px;
+    position:absolute;
+    left:340px;
+    top:650px;
+}
+#game{
+    width:300px;
+    height:80px;
+    position:absolute;
+    left:570px;
+    top:650px;
+}
+#story{
+    width:250px;
+    height:80px;
+    position:absolute;
+    left:900px;
+    top:650px;
+}
+#shop-menu-container {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    max-width: 640px;
+}
+#splash {
+    position: absolute;
+    width: 1430px;
+    height: 760px;
+    left: 0px;
+    top: 0px;
+    background-image: url('image/intro.png');
+    background-size: cover;
+}
+#shop-button {
+    position: absolute;
+    right: 0px;
+    background-image: url('image/shop.png');
+    background-size: cover;
+    width: 80px;
+    height: 80px;
+    background-color: transparent;
+    border: 0;
+}
+
+#shop-content-container {
+    position: absolute;
+    right: 0px;
+    top: 80px;
+    background-color: white;
+    min-width: 512px;
+    min-height: 512px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.shop-row-common {
+    vertical-align: middle;
+    padding: 2px;
+}
+
+.shop-item {
+    display: block;
+    width: 100%;
+}
+
+.hidden {
+    display: none !important;
+}
+
+img#gold-icon {
+    width: 20px;
+    height: 20px;
+    display: inline;
+    padding-right: 5px;
+}
+
+.shop-item-icon {
+    width: 40px;
+    height: 40px;
+    display: inline;
+    padding-right: 5px;
+}
+
+.buy-button {
+    height: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+    float: right;
+}

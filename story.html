@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id="background">
+    <div id="return"></div>
+    <p id="para">21xx년,x월x일 ,</br>
+       전 세계가 피에? 물든다...</br>
+        
+        금융 위기에 지구온난화</br>
+        천재지변 테러</br>
+        어지러워져만 가는 이 세계에</br>
+        갑자기 나타난 '외계인'</br>
+    </br>
+        대통령...스파이더맨...</br>
+        블루 드래곤...악마신 천사...</br>
+        치킨........바베큐...</br>
+    </br>
+        일단 쎄 보이는 것들을 나열해 봤지만</br>
+        외계인들의 침략을 막을 수는 없다.</br>
+    </br>
+        그러고 보니</br>
+        외계인의 모습에</br>
+        아이디어를 얻은 어딘가에서는</br>
+        여러가지  상품들을</br>
+        판매하는 듯하다.</br>
+    </br>
+        지금 세계가</br>
+        멸망할지도 모르는</br>
+        이 시기에</br>
+        참 태평스럽다.</br>
+    </br>
+        뭐 이제 이 글을</br>
+        끝내야 할겄갔다</br>
+    </br>
+        마지막으로</br>
+        단지 한 가지</br>
+        말하고 싶은 것은</br>
+    </br>
+        '외계인'은</br>
+        ........</br>
+        .........</br>
+        .........</br>
+        ........   </br>   
+        라는 정도다. </br></p>
+<input id="gmae"type="button" value="game start" onclick="location.href='game.html'"/>
+</body>
+</html>
+<script> 
+ let scroll = setInterval(function(){ window.scrollBy(0,1); }, 15);
+    window.addEventListener('keydown', (event) => {
+        if (event.key == 'd') {
+                location.href='intro.html'
+            }
+    });
+    document.getElementById('return').addEventListener('click',(event)=>{
+        location.href="intro.html"
+    });
+</script>
+<style>
+    #para{
+        font-size :40px;
+        text-align:center;
+    }
+    #return {
+    position: fixed;
+    top:0px;
+    right: 0px;
+    background-image: url('image/return.png');
+    background-size: cover;
+    width: 80px;
+    height: 80px;
+    background-color: transparent;
+    border: 0;
+}
+    #background{
+        background-image: url('image/universe.jpg');
+        background-size:contain;
+    }
+</style>

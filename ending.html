@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id="background">
+    <div id="return"></div>
+    <p id="para">21xx년,x월x일 ,</br>
+       전 세계가 피에 물들었다...</br>
+        
+        하지만 어찌저찌</br>
+        외계인 을  물리치고</br>
+        세계 는 평화?</br>
+        를 되찾은 겄갔다</br>
+    </br>
+        ...솔직히 말해서</br>
+        변한겄을 하나도 못느끼갰다</br>
+        진짜로.......</br>
+    </br>
+        외계인 의  침략때와</br>
+        지금 이 뭐가 다른진 모르겠지만</br>
+    </br>
+        그러고 보니</br>
+        외계인의 모습에</br>
+        아이디어 를 얻은 어딘가에서는</br>
+        상품 을 우주용사로바꿔</br>
+        판매하는 듯하다.</br>
+    </br>
+        세계가</br>
+        달라진건 없다</br>
+        그래도 내심 안심이된다랄까</br>
+    </br>
+        뭐 이제 이 글 을</br>
+        끝내야 될겄갔다</br>
+    </br>
+        마지막으로</br>
+        단지 한가지</br>
+        말하고 싶은 것은</br>
+    </br>
+        '외계인'은</br>
+        다시 돌아올겄갔다</br>
+        ........</br>
+        .........</br>
+        ........   </br>   
+        라는 정도다. </br></p>
+<input id="gmae"type="button" value="game restart" onclick="location.href='game.html'"/>
+</body>
+</html>
+<script> 
+ let scroll = setInterval(function(){ window.scrollBy(0,1); }, 15);
+    window.addEventListener('keydown', (event) => {
+        if (event.key == 'd') {
+                location.href='intro.html'
+            }
+    });
+    document.getElementById('return').addEventListener('click',(event)=>{
+        location.href="intro.html"
+    });
+</script>
+<style>
+    #para{
+        font-size :40px;
+        text-align:center;
+    }
+    #return {
+    position: fixed;
+    top:0px;
+    right: 0px;
+    background-image: url('image/return.png');
+    background-size: cover;
+    width: 80px;
+    height: 80px;
+    background-color: transparent;
+    border: 0;
+}
+    #background{
+    background-image: url('image/universe.jpg');
+    background-size:contain;
+}
+</style>

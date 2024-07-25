@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4d3s3wv4knfp"]
+
+[ext_resource type="Script" path="res://Stage.gd" id="1_aujqc"]
+[ext_resource type="PackedScene" uid="uid://motnqllkih5t" path="res://BG.tscn" id="1_cmx6n"]
+
+[node name="Stage" type="Node"]
+script = ExtResource("1_aujqc")
+
+[node name="BG" parent="." instance=ExtResource("1_cmx6n")]
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_right = 1150.0
+offset_bottom = 574.0
+
+[node name="VBoxContainer" type="GridContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(100, 2.08165e-12)
+layout_mode = 2
+theme_override_constants/h_separation = 35
+theme_override_constants/v_separation = 15
+columns = 6
+
+[node name="ButtonTemplate" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(160, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "1-1"
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -52.0
+offset_top = -63.0
+offset_right = 52.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 40
+text = "Main"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

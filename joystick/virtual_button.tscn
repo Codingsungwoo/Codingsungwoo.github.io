@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://6252fdruoctp"]
+
+[ext_resource type="Texture2D" uid="uid://bkvmydfn5saxg" path="res://joystick/textures/joystick_tip.png" id="1_53kfr"]
+[ext_resource type="Script" path="res://joystick/VirtualButton.gd" id="1_frnl5"]
+
+[node name="virtual_button" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1052.0
+offset_bottom = -548.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_frnl5")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+texture_normal = ExtResource("1_53kfr")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -17.0
+offset_right = 20.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Jump"
+
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
+[connection signal="released" from="TouchScreenButton" to="." method="_on_touch_screen_button_released"]

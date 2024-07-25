@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcew4qscc5cqy"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_3mwd6"]
+[ext_resource type="PackedScene" uid="uid://motnqllkih5t" path="res://BG.tscn" id="2_x0rp6"]
+
+[node name="Main" type="Node2D"]
+position = Vector2(1, 0)
+script = ExtResource("1_3mwd6")
+
+[node name="Play" type="Button" parent="."]
+offset_left = 432.0
+offset_top = 78.0
+offset_right = 718.0
+offset_bottom = 153.0
+theme_override_font_sizes/font_size = 40
+text = "Play"
+
+[node name="Continue" type="Button" parent="."]
+offset_left = 434.0
+offset_top = 176.0
+offset_right = 720.0
+offset_bottom = 251.0
+theme_override_font_sizes/font_size = 40
+text = "Continue"
+
+[node name="Stage" type="Button" parent="."]
+offset_left = 437.0
+offset_top = 265.0
+offset_right = 723.0
+offset_bottom = 340.0
+theme_override_font_sizes/font_size = 40
+text = "Stage"
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 432.0
+offset_top = 360.0
+offset_right = 718.0
+offset_bottom = 435.0
+theme_override_font_sizes/font_size = 40
+text = "Quit"
+
+[node name="BG" parent="." instance=ExtResource("2_x0rp6")]
+
+[node name="ResetProgressButton" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Debug"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Stage" to="." method="_on_stage_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="ResetProgressButton" to="." method="_on_reset_progress_button_pressed"]

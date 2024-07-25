@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0rn3pvw313m6"]
+
+[ext_resource type="AudioStream" uid="uid://dgfom31y4bhse" path="res://Sound/Music/platformer_level03_loop.ogg" id="1_4sqo4"]
+[ext_resource type="AudioStream" uid="uid://c60e11hqeblwo" path="res://Sound/sfx/bouncy.wav" id="2_4g7v4"]
+[ext_resource type="AudioStream" uid="uid://dep6tqi2po1xl" path="res://Sound/sfx/gemmy.wav" id="3_qso0p"]
+[ext_resource type="AudioStream" uid="uid://oswv66x6kw0h" path="res://Sound/sfx/jumpy.wav" id="4_1gbt6"]
+[ext_resource type="AudioStream" uid="uid://fjbr2m7bjcuv" path="res://Sound/sfx/uhoh.wav" id="5_xcfjo"]
+
+[node name="SoundDirector" type="Node"]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("1_4sqo4")
+volume_db = -15.0
+autoplay = true
+
+[node name="BounceSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_4g7v4")
+
+[node name="ItemSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qso0p")
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_1gbt6")
+volume_db = -10.0
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_xcfjo")
+volume_db = -15.0

@@ -1,0 +1,68 @@
+[gd_scene load_steps=13 format=3 uid="uid://d007xpgv3mbqr"]
+
+[ext_resource type="Script" path="res://health_pack_item.gd" id="1_4u2yv"]
+[ext_resource type="Texture2D" uid="uid://cyybewr1rir0d" path="res://Sunny-land-files/Graphical Assets/sprites/gem/gem-1.png" id="1_q6vyx"]
+[ext_resource type="Texture2D" uid="uid://odif7yugekku" path="res://Sunny-land-files/Graphical Assets/sprites/gem/gem-2.png" id="2_6fnr0"]
+[ext_resource type="Texture2D" uid="uid://bw6p68wjnkk6f" path="res://Sunny-land-files/Graphical Assets/sprites/gem/gem-3.png" id="3_q0u27"]
+[ext_resource type="Texture2D" uid="uid://drcjsw1d7x7jo" path="res://Sunny-land-files/Graphical Assets/sprites/gem/gem-4.png" id="4_sffnt"]
+[ext_resource type="Texture2D" uid="uid://clvvjhoyw3ufw" path="res://Sunny-land-files/Graphical Assets/sprites/gem/gem-5.png" id="5_so1yi"]
+[ext_resource type="Texture2D" uid="uid://bt1e286r6wjnc" path="res://Sunny-land-files/Graphical Assets/sprites/item-feedback/item-feedback-1.png" id="6_pyqo3"]
+[ext_resource type="Texture2D" uid="uid://cd74kertljk24" path="res://Sunny-land-files/Graphical Assets/sprites/item-feedback/item-feedback-2.png" id="7_q65p4"]
+[ext_resource type="Texture2D" uid="uid://bx3ryvbr2puxe" path="res://Sunny-land-files/Graphical Assets/sprites/item-feedback/item-feedback-3.png" id="8_owlik"]
+[ext_resource type="Texture2D" uid="uid://dcyv6u3gt72ft" path="res://Sunny-land-files/Graphical Assets/sprites/item-feedback/item-feedback-4.png" id="9_n3w6q"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_13qhy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_q6vyx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_6fnr0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_q0u27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_sffnt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_so1yi")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("6_pyqo3")
+}, {
+"duration": 2.0,
+"texture": ExtResource("7_q65p4")
+}, {
+"duration": 2.0,
+"texture": ExtResource("8_owlik")
+}, {
+"duration": 2.0,
+"texture": ExtResource("9_n3w6q")
+}],
+"loop": false,
+"name": &"consumed",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7smpi"]
+radius = 6.0
+
+[node name="HealthPackItem" type="Area2D"]
+script = ExtResource("1_4u2yv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_13qhy")
+animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_7smpi")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

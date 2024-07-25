@@ -1,0 +1,144 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbpxi6u0du05n"]
+
+[ext_resource type="Script" path="res://Play.gd" id="1_e637g"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://joystick/virtual_joystick.tscn" id="2_55a2w"]
+[ext_resource type="PackedScene" uid="uid://bvi3013seionq" path="res://world/world1-1.tscn" id="2_wb0gf"]
+[ext_resource type="PackedScene" uid="uid://6252fdruoctp" path="res://joystick/virtual_button.tscn" id="4_wyqoa"]
+[ext_resource type="Texture2D" uid="uid://biutibxuars6i" path="res://Sunny-land-files/Pause-button.png" id="5_7ld3h"]
+
+[node name="Play" type="Node"]
+process_mode = 1
+script = ExtResource("1_e637g")
+world_scene = ExtResource("2_wb0gf")
+
+[node name="ControlLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="Virtual Joystick" parent="ControlLayer" instance=ExtResource("2_55a2w")]
+visibility_mode = 1
+action_up = ""
+
+[node name="JumpButton" parent="ControlLayer" instance=ExtResource("4_wyqoa")]
+offset_left = 916.0
+offset_top = 506.0
+offset_right = -136.0
+offset_bottom = -42.0
+visibility_mode = 1
+
+[node name="FloatButton" parent="ControlLayer" instance=ExtResource("4_wyqoa")]
+offset_left = 1034.0
+offset_top = 392.0
+offset_right = -18.0
+offset_bottom = -156.0
+visibility_mode = 1
+action_pressed = "ui_up"
+text = "up"
+
+[node name="ShiftButton" parent="ControlLayer" instance=ExtResource("4_wyqoa")]
+offset_left = 916.0
+offset_top = 388.0
+offset_right = -136.0
+offset_bottom = -160.0
+visibility_mode = 1
+action_pressed = "shift"
+text = "shift"
+
+[node name="ShrinkButton" parent="ControlLayer" instance=ExtResource("4_wyqoa")]
+offset_left = 1030.0
+offset_top = 504.0
+offset_right = -22.0
+offset_bottom = -44.0
+visibility_mode = 1
+action_pressed = "shrink"
+text = "shrink"
+
+[node name="PauseButton" type="TextureButton" parent="ControlLayer"]
+process_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_bottom = 100.0
+grow_horizontal = 0
+texture_normal = ExtResource("5_7ld3h")
+
+[node name="PausedLayer" type="CanvasLayer" parent="."]
+process_mode = 2
+layer = 5
+
+[node name="Background" type="ColorRect" parent="PausedLayer"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.313726)
+metadata/_edit_lock_ = true
+
+[node name="PauseLabel" type="Label" parent="PausedLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.5
+offset_top = -184.0
+offset_right = 84.5
+offset_bottom = -117.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "Paused"
+metadata/_edit_lock_ = true
+
+[node name="ContinueButton" type="Button" parent="PausedLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -30.0
+offset_right = 80.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "Continue"
+
+[node name="RestartButton" type="Button" parent="PausedLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = 35.0
+offset_right = 80.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "Restart"
+
+[node name="QuitButton" type="Button" parent="PausedLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = 100.0
+offset_right = 80.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "Quit"
+
+[connection signal="button_down" from="ControlLayer/PauseButton" to="." method="_on_pause_button_button_down"]
+[connection signal="button_up" from="ControlLayer/PauseButton" to="." method="_on_pause_button_button_up"]
+[connection signal="pressed" from="ControlLayer/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="PausedLayer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="PausedLayer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="PausedLayer/QuitButton" to="." method="_on_quit_button_pressed"]

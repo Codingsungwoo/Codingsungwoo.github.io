@@ -1,0 +1,84 @@
+[gd_scene load_steps=15 format=3 uid="uid://o1i1ip07t3m6"]
+
+[ext_resource type="Script" path="res://Eagle.gd" id="1_4x3v0"]
+[ext_resource type="Texture2D" uid="uid://cbg4anbkbi5ng" path="res://Sunny-land-files/Graphical Assets/sprites/enemy-death/enemy-death-1.png" id="1_naee4"]
+[ext_resource type="Texture2D" uid="uid://b8u78wa3vmrue" path="res://Sunny-land-files/Graphical Assets/sprites/enemy-death/enemy-death-2.png" id="2_5gohg"]
+[ext_resource type="Texture2D" uid="uid://da34t2wexgbrc" path="res://Sunny-land-files/Graphical Assets/sprites/enemy-death/enemy-death-3.png" id="3_0pbm1"]
+[ext_resource type="Texture2D" uid="uid://cqbbsrycg7kid" path="res://Sunny-land-files/Graphical Assets/sprites/enemy-death/enemy-death-4.png" id="4_uy6np"]
+[ext_resource type="Texture2D" uid="uid://h08v5s8u1oqk" path="res://Sunny-land-files/Graphical Assets/sprites/enemy-death/enemy-death-5.png" id="5_nicug"]
+[ext_resource type="Texture2D" uid="uid://ce3qguicomal4" path="res://Sunny-land-files/Graphical Assets/sprites/enemy-death/enemy-death-6.png" id="6_vqggm"]
+[ext_resource type="Texture2D" uid="uid://c0sjtim17trn2" path="res://Sunny-land-files/Graphical Assets/sprites/eagle/eagle-attack-1.png" id="7_byn4l"]
+[ext_resource type="Texture2D" uid="uid://r8vwb5sy4wmo" path="res://Sunny-land-files/Graphical Assets/sprites/eagle/eagle-attack-2.png" id="8_yk136"]
+[ext_resource type="Texture2D" uid="uid://43jvse80rqv" path="res://Sunny-land-files/Graphical Assets/sprites/eagle/eagle-attack-3.png" id="9_00pw8"]
+[ext_resource type="Texture2D" uid="uid://dq3aayvcqkjru" path="res://Sunny-land-files/Graphical Assets/sprites/eagle/eagle-attack-4.png" id="10_jcgok"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ibxms"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_naee4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_5gohg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0pbm1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_uy6np")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nicug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vqggm")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_byn4l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yk136")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_00pw8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_jcgok")
+}],
+"loop": true,
+"name": &"Move",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j7ehx"]
+radius = 18.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7kilf"]
+size = Vector2(24, 22)
+
+[node name="Eagle" type="Node2D"]
+script = ExtResource("1_4x3v0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ibxms")
+animation = &"Move"
+
+[node name="PlayerDeathDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDeathDetection"]
+position = Vector2(-2, -1)
+shape = SubResource("CircleShape2D_j7ehx")
+
+[node name="MobDeathDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MobDeathDetection"]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_7kilf")
+
+[connection signal="body_entered" from="PlayerDeathDetection" to="." method="_on_player_death_detection_body_entered"]
+[connection signal="body_entered" from="MobDeathDetection" to="." method="_on_mob_death_detection_body_entered"]
